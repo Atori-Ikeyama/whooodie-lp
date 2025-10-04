@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Whooodie | Stay Hangry, Stay Whooodie</title>
+    <meta
+      name="description"
+      content="好きな人と囲む食卓を。あのかけがえのない時間を。Whooodie = Food × Who"
+    />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Subtle grain background */
+      .grain {
+        position: relative;
+      }
+      .grain:before {
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        inset: 0;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.04"/></svg>');
+        mix-blend-mode: multiply;
+        opacity: 0.3;
+      }
+
+      /* Soft float animation for hero Os */
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      .float-slow {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      /* underline accent */
+      .underline-wavy {
+        background: linear-gradient(transparent 78%, rgba(234, 88, 12, 0.25) 0);
+      }
+
+      /* section divider curve */
+      .curve-top {
+        clip-path: ellipse(140% 100% at 50% 0%);
+      }
+      .curve-bottom {
+        clip-path: ellipse(140% 100% at 50% 100%);
+      }
+    </style>
+  </head>
+  <body class="antialiased text-zinc-800 bg-[#FAF7F2] grain">
+    <!-- NAV -->
+    <header
+      class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/70 border-b border-zinc-200/60"
+    >
+      <div
+        class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16"
+      >
+        <a href="#" class="flex items-center gap-3 group">
+          <!-- Logo: 3 O motif -->
+          <svg
+            class="h-7 w-auto"
+            viewBox="0 0 100 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Whooodie logo"
+          >
+            <circle cx="18" cy="14" r="10" stroke="#0F172A" stroke-width="2" />
+            <circle cx="48" cy="14" r="10" stroke="#0F172A" stroke-width="2" />
+            <circle cx="78" cy="14" r="10" stroke="#0F172A" stroke-width="2" />
+          </svg>
+          <span class="font-semibold tracking-tight">Whooodie</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+          <a href="#concept" class="hover:opacity-70">Concept</a>
+          <a href="#manifesto" class="hover:opacity-70">Manifesto</a>
+          <a href="#stories" class="hover:opacity-70">Stories</a>
+          <a
+            href="https://www.instagram.com/stay_whooodie?igsh=N3duaTVrZnVlYW13"
+            class="rounded-full border border-zinc-300 px-4 py-1.5 hover:bg-zinc-900 hover:text-white transition"
+            target="_blank"
+            rel="noopener"
+            >Instagram</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-[#FFF6EB] via-transparent to-transparent pointer-events-none"
+      ></div>
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <p class="uppercase tracking-[0.35em] text-xs text-zinc-500">
+              Food × Who
+            </p>
+            <h1
+              class="mt-3 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
+            >
+              <span class="underline-wavy">Stay Hangry</span>,
+              <br class="hidden sm:block" />
+              <span class="underline-wavy">Stay Whooodie</span>
+            </h1>
+            <p class="mt-6 text-lg text-zinc-600">
+              腹ペコであれ、好きな人と食べろ。死に方は選べないが、生き方は選べる。メメント・モリを胸に、挑戦を食卓からはじめよう。
+            </p>
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                id="cta"
+                href="#contact"
+                class="inline-flex items-center rounded-full bg-zinc-900 text-white px-5 py-3 text-sm font-medium hover:opacity-90"
+                >コラボ・イベントの連絡</a
+              >
+              <a
+                href="#concept"
+                class="inline-flex items-center rounded-full border border-zinc-300 px-5 py-3 text-sm font-medium hover:bg-white"
+                >コンセプトを見る</a
+              >
+            </div>
+            <p class="mt-8 text-sm text-zinc-500">
+              Instagram 紹介文：<span class="italic"
+                >好きな人と囲む食卓を。あのかけがえのない時間を。</span
+              >
+            </p>
+          </div>
+          <div class="relative">
+            <!-- Three Os = one, two, three (who/food/our) -->
+            <div class="relative h-72 sm:h-80 lg:h-[28rem]">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="relative w-64 sm:w-72 lg:w-96 aspect-square">
+                  <!-- O(Who): solo -->
+                  <div
+                    class="absolute -top-4 -left-4 size-28 sm:size-32 lg:size-40 rounded-full border-2 border-zinc-800 bg-white shadow-md float-slow"
+                  ></div>
+                  <!-- OO(Food): pair -->
+                  <div
+                    class="absolute top-12 right-0 size-40 sm:size-44 lg:size-56 rounded-full border-2 border-zinc-800 bg-white shadow-md"
+                    style="animation: float 7.5s ease-in-out -1s infinite"
+                  ></div>
+                  <!-- OOO(Our/3rd seat): community -->
+                  <div
+                    class="absolute bottom-0 left-10 size-32 sm:size-36 lg:size-48 rounded-full border-2 border-zinc-800 bg-[#FDEAD7] shadow-lg"
+                    style="animation: float 9s ease-in-out -2s infinite"
+                  ></div>
+                  <!-- table plate -->
+                  <div
+                    class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[130%] h-24 bg-[#EDE7DE] rounded-full blur-md opacity-70"
+                  ></div>
+                </div>
+              </div>
+              <p class="absolute -bottom-8 right-0 text-xs text-zinc-500">
+                ○は一人、○○は二人、○○○は仲間の輪とourの3つのO。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCEPT -->
+    <section id="concept" class="relative py-20 lg:py-28 bg-white curve-top">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+            コンセプト
+          </h2>
+          <p class="mt-6 text-lg text-zinc-700">
+            「食卓」×「誰とするか」。Whooodie = Foodie。Food × Who。<span
+              class="whitespace-nowrap"
+              >o</span
+            >
+            一つが一人一人であり、Whoの時は一人、Foodを食べる時には二人、いつか自分たちふたり以外にも輪が広がり仲間が増えた日の三人目。そして
+            “おれたち” を意味する <span class="font-mono">our</span> の3つの
+            <span class="font-mono">O</span>。
+          </p>
+        </div>
+        <div class="mt-12 grid md:grid-cols-3 gap-6">
+          <div class="rounded-2xl border border-zinc-200 bg-[#FFFBF6] p-6">
+            <div class="text-sm uppercase tracking-widest text-zinc-500">
+              Who
+            </div>
+            <h3 class="mt-2 font-semibold text-xl">誰と食べるか</h3>
+            <p class="mt-3 text-zinc-600">
+              一人でも満たされる。二人で分け合えば、味は物語になる。誰と座るかが、人生の味を決める。
+            </p>
+          </div>
+          <div class="rounded-2xl border border-zinc-200 bg-[#F7FEE7] p-6">
+            <div class="text-sm uppercase tracking-widest text-zinc-500">
+              Food
+            </div>
+            <h3 class="mt-2 font-semibold text-xl">食べるもの</h3>
+            <p class="mt-3 text-zinc-600">
+              旬と手触り。火と香り。料理は「今ここ」を確かめる最短の道。
+            </p>
+          </div>
+          <div class="rounded-2xl border border-zinc-200 bg-[#ECFEFF] p-6">
+            <div class="text-sm uppercase tracking-widest text-zinc-500">
+              Our
+            </div>
+            <h3 class="mt-2 font-semibold text-xl">輪が広がる</h3>
+            <p class="mt-3 text-zinc-600">
+              三つ目の席を空けておく。いつか来る仲間のために。食卓はコミュニティの最小単位。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFESTO -->
+    <section
+      id="manifesto"
+      class="relative py-20 lg:py-28 bg-[#0F172A] text-zinc-100 curve-bottom"
+    >
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-bold">Manifesto</h2>
+            <p class="mt-6 text-lg text-zinc-300">
+              死に方は選べないが、生き方は選べる。メメント・モリ——「人はいつか死ぬ」。それを忘れなければ、緊張は小さく、挑戦はいつでも始められる。
+            </p>
+            <ul class="mt-6 space-y-3 text-zinc-300">
+              <li>・腹ペコであれ。</li>
+              <li>・好きな人と食べろ。</li>
+              <li>・三つ目の席を忘れるな。</li>
+              <li>・語れ、笑え、また明日も集まれ。</li>
+            </ul>
+          </div>
+          <div>
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6">
+              <blockquote class="text-xl leading-relaxed">
+                <p class="select-none">「Stay Hangry, Stay Whooodie」</p>
+                <p class="mt-4 text-zinc-300">
+                  腹ペコは、余白。誰かと分け合える余白が、人生を面白くする。
+                </p>
+              </blockquote>
+              <div class="mt-6 text-sm text-zinc-400">— Whooodie</div>
+            </div>
+            <div class="mt-6 grid sm:grid-cols-2 gap-6">
+              <div class="rounded-xl bg-white text-zinc-900 p-5">
+                <div class="text-xs uppercase tracking-widest text-zinc-500">
+                  Instagram Bio
+                </div>
+                <p class="mt-2">
+                  好きな人と囲む食卓を。あのかけがえのない時間を。
+                </p>
+              </div>
+              <div class="rounded-xl bg-white/10 ring-1 ring-white/10 p-5">
+                <div class="text-xs uppercase tracking-widest text-zinc-400">
+                  Tagline
+                </div>
+                <p class="mt-2">Food × Who = Whooodie</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORIES / USE-CASES -->
+    <section id="stories" class="py-20 lg:py-28">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl">
+          <h2 class="text-3xl sm:text-4xl font-bold">Table Stories</h2>
+          <p class="mt-6 text-lg text-zinc-700">
+            食卓が運ぶのは、栄養だけじゃない。関係と記憶だ。Whooodie
+            はその「場」をデザインする。
+          </p>
+        </div>
+        <div
+          class="mt-10 rounded-2xl border border-dashed border-zinc-300 bg-white/60 p-10 text-center"
+        >
+          <div class="text-sm uppercase tracking-[0.4em] text-zinc-400">
+            Coming Soon
+          </div>
+          <p class="mt-4 text-lg text-zinc-600">
+            ただいまテーブルストーリーを準備中です。公開までしばらくお待ちください。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / CTA -->
+    <section id="contact" class="relative py-20 lg:py-28 bg-white">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold">一緒に、食卓をつくろう。</h2>
+        <p class="mt-4 text-lg text-zinc-700">
+          ポップアップ、コラボ、撮影・イベントのご相談はお気軽に。好きな人と囲む食卓を、街に増やしたい。
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3 justify-center">
+          <a
+            href="https://www.instagram.com/stay_whooodie?igsh=N3duaTVrZnVlYW13"
+            class="rounded-full bg-[#0F172A] text-white px-6 py-3 text-sm font-medium hover:opacity-90"
+            target="_blank"
+            rel="noopener"
+            >Instagramを見る</a
+          >
+          <a
+            href="mailto:hello@whooodie.example"
+            class="rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium hover:bg-zinc-50"
+            >メールで連絡する</a
+          >
+        </div>
+        <p class="mt-6 text-sm text-zinc-500">
+          ※ Instagram のDMでもご連絡ください。
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-zinc-200/70 bg-[#FAF7F2]">
+      <div
+        class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-4"
+      >
+        <div class="flex items-center gap-3">
+          <svg
+            class="h-5 w-auto"
+            viewBox="0 0 120 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle cx="18" cy="14" r="8" stroke="#0F172A" stroke-width="2" />
+            <circle cx="48" cy="14" r="8" stroke="#0F172A" stroke-width="2" />
+            <circle cx="78" cy="14" r="8" stroke="#0F172A" stroke-width="2" />
+          </svg>
+          <span class="text-sm">© <span id="y"></span> Whooodie</span>
+        </div>
+        <div class="text-sm text-zinc-500">Food × Who = Our Table</div>
+      </div>
+      <script>
+        // year
+        document.getElementById("y").textContent = new Date().getFullYear();
+      </script>
+    </footer>
+  </body>
+</html>
